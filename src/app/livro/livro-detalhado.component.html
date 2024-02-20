@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Livro Detalhado</h2>
+  <div *ngIf="livro">
+    <h2>{{ livro.titulo }}</h2>
+    <p><strong>Autor:</strong> {{ livro.autor }}</p>
+    <p><strong>Ano de Publicação:</strong> {{ livro.dataCriacao }}</p>
+    <p><strong>Descrição:</strong> {{ livro.descricao }}</p>
+  </div>
+</div>

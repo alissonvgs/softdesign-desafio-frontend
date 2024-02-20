@@ -1,0 +1,19 @@
+<h2>Register</h2>
+<form (ngSubmit)="register()">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username" [(ngModel)]="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password" [(ngModel)]="password"><br>
+
+  <div>
+    <label for="role">Role:</label><br>
+    <select id="role" [(ngModel)]="role" name="role">
+      <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+    </select>
+  </div>
+
+  <button type="submit">Register</button>
+
+  <p>Fazer login <a routerLink="/">Fazer Login.</a>.</p>
+
+</form>

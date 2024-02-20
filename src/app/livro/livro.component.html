@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar Livro</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        color: #333;
+    }
+    label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+    }
+    input[type="text"],
+    textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+    button[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>Criar Livro</h2>
+  <form (submit)="criarLivro()">
+    <label for="autor">Autor:</label>
+    <input type="text" id="autor" [(ngModel)]="livroDTO.autor" name="autor" required><br>
+
+    <label for="titulo">Título:</label>
+    <input type="text" id="titulo" [(ngModel)]="livroDTO.titulo" name="titulo" required><br>
+
+    <label for="descricao">Descrição:</label><br>
+    <textarea id="descricao" [(ngModel)]="livroDTO.descricao" name="descricao" rows="4" cols="50" required></textarea><br>
+
+    <button type="submit">Criar Livro</button>
+  </form>
+</div>
+
+<div class="container">
+  <h2>Livros</h2>
+  <ul>
+    <li *ngFor="let livro of livros">
+      <a [routerLink]="['/livro/', livro.id]">
+        <strong>{{ livro.titulo }}</strong> - {{ livro.autor }}
+      </a>
+    </li>
+  </ul>
+</div>
+
+</body>
+</html>
